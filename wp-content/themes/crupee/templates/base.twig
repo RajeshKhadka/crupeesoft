@@ -9,10 +9,10 @@
 	<body class="{{body_class}}" data-template="base.twig">
 		 <div class="page-wrapper">
 
-        {# <div class="preloader">
+        <div class="preloader">
             <div class="icon"></div>
         </div>
- #}
+
         <!-- Main Header -->
         <header class="main-header header-style-one header-style-four">
 
@@ -21,7 +21,7 @@
                 <div class="inner-container clearfix">
                     <!--Logo-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index.html" title="Crupee Software Development"><img
+                        <div class="logo"><a href="{{site.link}}" title="Crupee Software Development"><img
                                     src="{{site.theme.link}}/assets/images/logo.png" id="dLogo" class="main-logo"
                                     alt="Crupee Software Development"
                                     title="Crupee Software Development"></a></div>
@@ -50,10 +50,10 @@
 
                     <div class="other-links clearfix">
                         <!-- cart btn -->
-                        <div class="cart-btn">
+                       {#  <div class="cart-btn">
                             <a href="cart.html" class="theme-btn cart-toggler"><span
                                     class="flaticon-shopping-cart"></span></a>
-                        </div>
+                        </div> #}
 
                         <div class="link-box">
                             <div class="call-us">

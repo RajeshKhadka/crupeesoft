@@ -290,40 +290,50 @@
                         <div class="sec-title">
                             <h2>work showcase<span class="dot">.</span></h2>
                         </div>
+                            
                         <!--Filter-->
                         <div class="filters clearfix">
                             <ul class="filter-tabs filter-btns clearfix">
-                                <li class="active filter" data-role="button" data-filter="all">All<sup>[6]</sup></li>
-                                <li class="filter" data-role="button" data-filter=".branding">Branding<sup>[3]</sup>
+                                <li class="active filter" data-role="button" data-filter="all">All<sup>[{{workshowcase_category|length}}]</sup></li>
+                                {% for item in workshowcase_category %}
+                               {#  <pre>
+                                {{ item|print_r }}
+                            </pre> #}
+                                <li class="filter" data-role="button" data-filter=".{{item.slug}}">{{item.name}}<sup>[{{item.count}}]</sup>
                                 </li>
-                                <li class="filter" data-role="button" data-filter=".illustration">
+                                {% endfor %}
+                                {# <li class="filter" data-role="button" data-filter=".illustration">
                                     illustration<sup>[3]</sup></li>
                                 <li class="filter" data-role="button" data-filter=".photography">
                                     Photography<sup>[3]</sup></li>
                                 <li class="filter" data-role="button" data-filter=".web-design">Web Design<sup>[4]</sup>
-                                </li>
+                                </li> #}
                             </ul>
                         </div>
                     </div>
                     <div class="filter-list row">
                         <!-- Gallery Item -->
-                        <div class="gallery-item mix all web-design col-lg-4 col-md-6 col-sm-12">
+                        {% for key,item in workshowcase %}
+                            {% for sitem in item %}
+                        <div class="gallery-item mix all {{key}} col-lg-4 col-md-6 col-sm-12">
                             <div class="inner-box">
-                                <figure class="image"><img src="{{site.theme.link}}/assets/images/gallery/1.jpg" alt=""></figure>
-                                <a href="{{site.theme.link}}/assets/images/gallery/1.jpg" class="lightbox-image overlay-box"
+                                <figure class="image"><img src="{{sitem.thumbnail.src}}" alt="{{sitem.post_title}} "></figure>
+                                <a href="{{sitem.thumbnail.src}}" class="lightbox-image overlay-box"
                                     data-fancybox="gallery"></a>
                                 <div class="cap-box">
                                     <div class="cap-inner">
-                                        <div class="cat"><span>Graphic</span></div>
+                                        <div class="cat"><span>{{sitem.post_title}}</span></div>
                                         <div class="title">
-                                            <h5><a href="portfolio-single.html">Fimlor Experience</a></h5>
+                                            <h5><a href="portfolio-single.html">{{sitem.post_title}}</a></h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                            {% endfor %}
+                        {% endfor %}
 
-                        <!-- Gallery Item -->
+                       {#  <!-- Gallery Item -->
                         <div class="gallery-item mix all photography web-design col-lg-4 col-md-6 col-sm-12">
                             <div class="inner-box">
                                 <figure class="image"><img src="{{site.theme.link}}/assets/images/gallery/2.jpg" alt=""></figure>
@@ -407,7 +417,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> #}
 
                     </div>
 
