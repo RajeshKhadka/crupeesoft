@@ -5,6 +5,7 @@
         <section class="banner-section banner-one banner-one-page" id="home">
 
             <div class="banner-carousel owl-theme owl-carousel">
+            {% for item in sliders %}
                 <!-- Slide Item -->
                 <div class="slide-item">
                     <div class="image-layer" style="background-image: url({{site.theme.link}}/assets/images/main-slider/2-1.jpg);"></div>
@@ -13,10 +14,10 @@
                         <div class="content-box">
                             <div class="content">
                                 <div class="inner text-center">
-                                    <div class="sub-title">welcome to Crupee</div>
-                                    <h1>Discover <br> <span>Our Develpment Process</span></h1>
+                                    <div class="sub-title">{{item.post_title}}</div>
+                                    <h1>Discover <br> <span>Team Crupee</span></h1>
                                     <div class="link-box">
-                                        <a class="theme-btn btn-style-one" href="about.html">
+                                        <a class="theme-btn btn-style-one" href="javascript:void(0)">
                                             <i class="btn-curve"></i>
                                             <span class="btn-title">Discover More</span>
                                         </a>
@@ -33,8 +34,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Slide Item -->
+{% endfor %}
+              {#   <!-- Slide Item -->
                 <div class="slide-item">
                     <div class="image-layer" style="background-image: url({{site.theme.link}}/assets/images/main-slider/2-2.jpg);"></div>
 
@@ -61,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> #}
 
             </div>
         </section>
