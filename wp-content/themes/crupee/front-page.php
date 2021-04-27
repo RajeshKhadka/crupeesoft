@@ -42,8 +42,38 @@ $args = array(
 
 );
 $context['sliders'] = Timber::get_posts($args);
-$context['offer_section'] = get_field('offer_section');
+$args = array(
+	'post_type' => 'features',
+	'post_status' => 'publish',
+	'posts_per_page' => 3,
+	// 'orderby' => 'meta_value_num',
+	// 'meta_key' => 'works_priority',
+	'order' => 'DESC',
 
+);
+$context['features'] = Timber::get_posts($args);
+
+$args = array(
+	'post_type' => 'teams',
+	'post_status' => 'publish',
+	'posts_per_page' => 3,
+	// 'orderby' => 'meta_value_num',
+	// 'meta_key' => 'works_priority',
+	'order' => 'ASC',
+
+);
+$context['teams'] = Timber::get_posts($args);
+
+$args = array(
+	'post_type' => 'post',
+	'post_status' => 'publish',
+	'posts_per_page' => 6,
+	// 'orderby' => 'meta_value_num',
+	// 'meta_key' => 'works_priority',
+	'order' => 'DESC',
+
+);
+$context['latest_news'] = Timber::get_posts($args);
 
 // echo "<pre>";
 // print_r($context['offer_section']);

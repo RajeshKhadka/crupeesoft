@@ -510,13 +510,14 @@
                                     <h2>Crupee all core features<span class="dot">.</span></h2>
                                 </div>
                                 <div class="features">
+                                    {% for key,item in features %}
                                     <div class="feature">
-                                        <div class="count"><span>01</span></div>
-                                        <h5>Professional Staff</h5>
-                                        <div class="sub-text">There are many variations of passages of lorem ipsum
-                                            majority have suffered.</div>
+                                        <div class="count"><span>0{{key+1}}</span></div>
+                                        <h5>{{item.post_title}}</h5>
+                                        <div class="sub-text">{{item.post_content}}</div>
                                     </div>
-                                    <div class="feature">
+                                    {% endfor %}
+                                   {#  <div class="feature">
                                         <div class="count"><span>02</span></div>
                                         <h5>100% Satisfaction</h5>
                                         <div class="sub-text">There are many variations of passages of lorem ipsum
@@ -527,7 +528,7 @@
                                         <h5>Quality designing</h5>
                                         <div class="sub-text">There are many variations of passages of lorem ipsum
                                             majority have suffered.</div>
-                                    </div>
+                                    </div> #}
                                 </div>
                             </div>
                         </div>
@@ -559,289 +560,34 @@
             </div>
             <div class="carousel-box">
                 <div class="team-carousel owl-theme owl-carousel">
+                {% for item in teams %}
                     <!--Team-->
                     <div class="team-block">
                         <div class="inner-box">
                             <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-1.jpg" alt=""></a>
+                                <a href="Javascript:void(0);"><img src="{{item.thumbnail.src}}" alt="{{item.post_title}}'s image"></a>
                                 <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                {% if item.meta('facebook_link_url') %}
+                                    <li><a href="{{item.meta('facebook_link_url')}}" target="_blank" rel="noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+                                {% endif %}
+                                {% if item.meta('twitter_link_url') %}
+                                    <li><a href="{{item.meta('twitter_link_url') }}" target="_blank" rel="noopener noreferrer"><span class="fab fa-twitter"></span></a></li>
+                                {% endif %}
+                                {% if item.meta('instagram_link_url') %}
+                                    <li><a href="{{item.meta('instagram_link_url')}}" target="_blank" rel="noopener noreferrer"><span class="fab fa-instagram"></span></a></li>
+                                {% endif %}
+                                {% if item.meta('pin_interest_link_url') %}
+                                    <li><a href="{{item.meta('pin_interest_link_url')}}"  target="_blank" rel="noopener noreferrer"><span class="fab fa-pinterest-p"></span></a></li>
+                                {% endif %}
                                 </ul>
                             </div>
                             <div class="lower-box">
-                                <h5><a href="#">Kevin martin</a></h5>
-                                <div class="designation">Designer</div>
+                                <h5><a href="javascript:void(0)">{{item.post_title}}</a></h5>
+                                <div class="designation">{{item.meta('job_description')}}</div>
                             </div>
                         </div>
                     </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-2.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Jessica Brown</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-3.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">John Albert</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-4.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Rose ford</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-5.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Mike Hardson</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-1.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Kevin martin</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-2.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Jessica Brown</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-3.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">John Albert</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-4.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Rose ford</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-5.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Mike Hardson</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-1.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Kevin martin</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-2.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Jessica Brown</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-3.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">John Albert</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-4.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Rose ford</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Team-->
-                    <div class="team-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <a href="about.html"><img src="{{site.theme.link}}/assets/images/resource/team-5.jpg" alt=""></a>
-                                <ul class="social-links clearfix">
-                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="lower-box">
-                                <h5><a href="#">Mike Hardson</a></h5>
-                                <div class="designation">Designer</div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>
@@ -1010,6 +756,7 @@
                 </div>
 
                 <div class="row clearfix">
+                {% for item in latest_news %}
                     <!--News Block-->
                     <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms"
                         data-wow-duration="1500ms">
@@ -1025,14 +772,15 @@
                                         <li><span class="far fa-comments"></span> 2 Comments</li>
                                     </ul>
                                 </div>
-                                <h5><a href="blog-single.html">basic rules of running web agency business</a></h5>
-                                <div class="text">Lorem ipsum is simply free text used by copytyping refreshing.</div>
-                                <div class="link-box"><a class="theme-btn" href="blog-single.html"><span
+                                <h5><a href="{{item.link}}">{{item.post_title}}</a></h5>
+                                <div class="text">{{item.post_content|excerpt(5)}}</div>
+                                <div class="link-box"><a class="theme-btn" href="{{item.link}}"><span
                                             class="flaticon-next-1"></span></a></div>
                             </div>
                         </div>
                     </div>
-                    <!--News Block-->
+                    {% endfor %}
+                   {#  <!--News Block-->
                     <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="300ms"
                         data-wow-duration="1500ms">
                         <div class="inner-box">
@@ -1075,7 +823,7 @@
                                             class="flaticon-next-1"></span></a></div>
                             </div>
                         </div>
-                    </div>
+                    </div> #}
                 </div>
             </div>
         </section>
