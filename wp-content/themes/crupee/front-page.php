@@ -1,10 +1,7 @@
 <?php
 /**
 Template Name: Homepage Layout
- * @package  WordPress
- * @subpackage  Timber
- * @since    Timber 0.1
- */
+  */
 
 $context = Timber::context();
 
@@ -45,8 +42,11 @@ $args = array(
 
 );
 $context['sliders'] = Timber::get_posts($args);
+$context['offer_section'] = get_field('offer_section');
+
+
 // echo "<pre>";
-// print_r($workshowcase_category);
-// print_r($works);
+// print_r($context['offer_section']);
+// print_r($context['post']);
 // die;
 Timber::render(array('home.twig', 'page.twig'), $context);
