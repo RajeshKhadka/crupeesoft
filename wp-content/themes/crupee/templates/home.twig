@@ -186,7 +186,7 @@
                     <h2>{{ group.title_of_the_section }}<span class="dot">.</span></h2>
                 </div>
                 <div class="main-image-box">
-                    <div class="image-layer" style="background-image: url({{site.theme.link}}/assets/images/resource/featured-image-3.jpg);"></div>
+                    <div class="image-layer" style="background-image: url({{ Image(group.background_image).src }});"></div>
                     <div class="inner clearfix">
                         <div class="round-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="round-inner">
@@ -199,7 +199,7 @@
                                 <div class="title">
                                     <h3>{{ group.description_text }}</h3>
                                 </div>
-                                <div class="more-link"><a href="about.html">Read More</a></div>
+                                <div class="more-link"><a href="Javascript:void(0);">Read More</a></div>
                             </div>
                         </div>
                     </div>
