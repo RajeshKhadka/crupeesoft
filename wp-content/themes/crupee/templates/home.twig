@@ -617,21 +617,21 @@
                 </div>
                 <div class="carousel-box">
                     <div class="testimonials-carousel owl-theme owl-carousel">
+                    {% for item in reviews %}
                         <div class="testi-block">
                             <div class="inner">
                                 <div class="icon"><span>“</span></div>
                                 <div class="info">
-                                    <div class="image"><a href="team.html"><img src="{{site.theme.link}}/assets/images/resource/author-1.jpg"
-                                                alt=""></a></div>
-                                    <div class="name">Shirley Smith</div>
-                                    <div class="designation">Director</div>
+                                    <div class="image">
+                                    <a href="team.html"><img src="{{item.thumbnail.src}}" alt="{{item.post_title}}'s image"></a></div>
+                                    <div class="name">{{item.post_title}}</div>
+                                    <div class="designation">{{item.meta('profession')}}</div>
                                 </div>
-                                <div class="text">There are many variations of passages of lorem ipsum available but the
-                                    majority have suffered alteration in some form, by injected humour, or randomised
-                                    words which don't look even slightly believable.</div>
+                                <div class="text">{{item.post_content}}</div>
                             </div>
                         </div>
-                        <div class="testi-block">
+                        {% endfor %}
+                        {# <div class="testi-block">
                             <div class="inner">
                                 <div class="icon"><span>“</span></div>
                                 <div class="info">
@@ -699,7 +699,7 @@
                                 <div class="text">There are many variations of passages of lorem ipsum available but the
                                     majority have suffered alteration in some form, by injected humour, or randomised
                                     words which don't look even slightly believable.</div>
-                            </div>
+                            </div> #}
                         </div>
                     </div>
                 </div>

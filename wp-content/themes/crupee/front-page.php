@@ -1,7 +1,7 @@
 <?php
 /**
 Template Name: Homepage Layout
-  */
+ */
 
 $context = Timber::context();
 
@@ -63,6 +63,17 @@ $args = array(
 
 );
 $context['teams'] = Timber::get_posts($args);
+
+$args = array(
+	'post_type' => 'reviews',
+	'post_status' => 'publish',
+	'posts_per_page' => 3,
+	// 'orderby' => 'meta_value_num',
+	// 'meta_key' => 'works_priority',
+	'order' => 'ASC',
+
+);
+$context['reviews'] = Timber::get_posts($args);
 
 $args = array(
 	'post_type' => 'post',

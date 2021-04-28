@@ -1,0 +1,306 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	 <!-- Banner Section -->
+        <section class="page-banner">
+            <div class="image-layer" style="background-image:url({{post.thumbnail.src}});"></div>
+            <div class="banner-inner">
+                <div class="auto-container">
+                    <div class="inner-container clearfix">
+                        <h1>About</h1>
+                        <div class="page-nav">
+                            <ul class="bread-crumb clearfix">
+                                <li><a href="{{site.link}}">Home</a></li>
+                                <li class="active">About</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Banner Section -->
+
+        <section class="featured-section featured-section__about-two">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Left Column-->
+                    <div class="left-col col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner wow fadeInLeft animated animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInLeft;">
+                            <div class="image-box"><img src="{{site.theme.link}}/assets/images/resource/featured-image-7.jpg" alt=""></div>
+                        </div>
+                    </div>
+                    <!--Right Column-->
+                    <div class="right-col col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner">
+                            <div class="sec-title">
+                                <h2>MAKE WEBSITES WITHOUT TOUCHING the CODing<span class="dot">.</span></h2>
+                                <div class="lower-text">We are committed to providing our customers with exceptional
+                                    service while offering our employees the best training. There are many variations of
+                                    passages of lorem ipsum is simply free text available in the market, but the
+                                    majority have suffered time.</div>
+                            </div>
+                            <div class="features">
+                                <div class="row clearfix">
+                                    <div class="feature col-md-6 col-sm-12">
+                                        <div class="inner-box">
+                                            <h6>Free Consultation</h6>
+                                            <div class="text">Lorem ipsum is not dolor sit amet, consectetur notted.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feature col-md-6 col-sm-12">
+                                        <div class="inner-box">
+                                            <h6>Best team members</h6>
+                                            <div class="text">Lorem ipsum is not dolor sit amet, consectetur notted.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Testimonials Section-->
+        <section class="testimonials-section">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h2>Customer feedbacks<span class="dot">.</span></h2>
+                </div>
+                <div class="carousel-box">
+                    <div class="testimonials-carousel owl-theme owl-carousel">
+                        {% for item in reviews %}
+                        <div class="testi-block">
+                            <div class="inner">
+                                <div class="icon"><span>“</span></div>
+                                <div class="info">
+                                    <div class="image">
+                                    <a href="team.html"><img src="{{item.thumbnail.src}}" alt="{{item.post_title}}'s image"></a></div>
+                                    <div class="name">{{item.post_title}}</div>
+                                    <div class="designation">{{item.meta('profession')}}</div>
+                                </div>
+                                <div class="text">{{item.post_content}}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Funfacts Section -->
+        <section class="facts-section alternate">
+            <div class="auto-container">
+                <div class="inner-container">
+
+                    <!-- Fact Counter -->
+                    <div class="fact-counter">
+                        <div class="row clearfix">
+                       {#  <pre>
+                        	{{ homepage_content|print_r }}
+                        </pre> #}
+ 							{% for item in homepage_content.meta('achievement_section') %}		
+                            <!--Column-->
+                            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="content">
+                                        <div class="count-outer count-box">
+                                            <span class="count-text" data-speed="4000" data-stop="{{item.achievement_count}}">0</span>
+                                        </div>
+                                        <div class="counter-title">{{item.achievement_title}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+							{# 
+                            <!--Column-->
+                            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="content">
+                                        <div class="count-outer count-box alternate">
+                                            <span class="count-text" data-speed="3000" data-stop="480">0</span>
+                                        </div>
+                                        <div class="counter-title">Active clients</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Column-->
+                            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="content">
+                                        <div class="count-outer count-box">
+                                            <span class="count-text" data-speed="3000" data-stop="626">0</span>
+                                        </div>
+                                        <div class="counter-title">cups of coffee</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Column-->
+                            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="content">
+                                        <div class="count-outer count-box">
+                                            <span class="count-text" data-speed="4000" data-stop="9704">0</span>
+                                        </div>
+                                        <div class="counter-title">happy clients</div>
+                                    </div>
+                                </div>
+                            </div> #}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Funfacts Section -->
+
+        <!-- Parallax Section -->
+        <section class="parallax-section jarallax" data-jarallax data-speed="0.3" data-imgPosition="50% 80%">
+            <!-- <div class="image-layer" style="background-image: url(images/background/image-2.jpg);"></div> -->
+            <img src="{{site.theme.link}}/assets/images/background/image-2.jpg" alt="" class="jarallax-img">
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="icon-box"><span class="flaticon-app-development"></span></div>
+                    <h2>Great things in business are never done by one person. <span>They’re done by a team of
+                            people.</span></h2>
+                </div>
+            </div>
+        </section>
+        <!-- End Funfacts Section -->
+
+        <!--Agency Section-->
+        <section class="agency-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Left Column-->
+                    <div class="left-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="inner">
+                            <div class="sec-title">
+                                <h2>Best design Agency <br>solutions<span class="dot">.</span></h2>
+                            </div>
+
+                            <!--Default Tabs-->
+                            <div class="default-tabs tabs-box">
+
+                                <!--Tab Btns-->
+                                <ul class="tab-btns tab-buttons clearfix">
+                                    <li data-tab="#tab-1" class="tab-btn active-btn"><span>Our Mission</span></li>
+                                    <li data-tab="#tab-2" class="tab-btn"><span>Our Vision</span></li>
+                                    <li data-tab="#tab-3" class="tab-btn"><span>Our History</span></li>
+                                </ul>
+
+                                <!--Tabs Container-->
+                                <div class="tabs-content">
+
+                                    <!--Tab-->
+                                    <div class="tab active-tab" id="tab-1">
+                                        <div class="content">
+                                            <div class="text">There are many variations of passages of avaialable but
+                                                the majority have in some form, by injected humou or words which don't
+                                                look even slightly believable. There are many variations of but the
+                                                majority have suffered.</div>
+                                        </div>
+                                    </div>
+
+                                    <!--Tab-->
+                                    <div class="tab" id="tab-2">
+                                        <div class="content">
+                                            <div class="text">There are many variations of passages of avaialable but
+                                                the majority have in some form, by injected humou or words which don't
+                                                look even slightly believable. There are many variations of but the
+                                                majority have suffered.</div>
+                                        </div>
+                                    </div>
+
+                                    <!--Tab-->
+                                    <div class="tab" id="tab-3">
+                                        <div class="content">
+                                            <div class="text">There are many variations of passages of avaialable but
+                                                the majority have in some form, by injected humou or words which don't
+                                                look even slightly believable. There are many variations of but the
+                                                majority have suffered.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Right Column-->
+                    <div class="right-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="inner">
+                            <div class="text">There are many variations of passages of available but the majority have
+                                suffered alteration in some form, by injected humou or randomised words which don't look
+                                even slightly believable.</div>
+                            <div class="featured-block-two clearfix">
+                                <div class="image"><img src="{{site.theme.link}}/assets/images/resource/featured-image-6.jpg" alt=""></div>
+                                <div class="text">
+                                    <ul>
+                                        <li>Nsectetur cing elit.</li>
+                                        <li>Suspe ndisse suscipit sagittis leo.</li>
+                                        <li>Entum estibulum dignissim posuere.</li>
+                                        <li>If you are going to use a passage.</li>
+                                        <li>Lorem Ipsum on the tend to repeat.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-three team-three__about-two">
+              <div class="auto-container">
+                  <div class="sec-title centered">
+                      <h2>Meet the management<span class="dot">.</span></h2>
+                  </div>
+                  <div class="row">
+                  	{% for item in teams %}
+                      <div class="col-md-6 col-lg-3">
+                          <div class="team-card-three">
+                              <div class="team-card-three__inner">
+                                  <div class="team-card-three__image">
+                                      <img src="{{item.thumbnail.src}}" alt="{{item.post_title}}'s image">
+                                  </div><!-- /.team-card-three__image -->
+                                  <div class="team-card-three__content">
+                                      <h5 class="team-card-three__name">{{item.post_title}}</h5>
+                                      <div class="team-card-three__designation">{{item.meta('job_description')}}</div>
+                                  </div><!-- /.team-card-three__content -->
+                                  <div class="team-card-three__hover">
+                                      <h5 class="team-card-three__name">{{item.post_title}}</h5>
+                                      <div class="team-card-three__designation">{{item.meta('job_description')}}</div>
+                                      <ul class="team-card-three__social clearfix m-0 list-unstyled">
+                                         {% if item.meta('facebook_link_url') %}
+                                    <li><a href="{{item.meta('facebook_link_url')}}" target="_blank" rel="noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+                                {% endif %}
+                                {% if item.meta('twitter_link_url') %}
+                                    <li><a href="{{item.meta('twitter_link_url') }}" target="_blank" rel="noopener noreferrer"><span class="fab fa-twitter"></span></a></li>
+                                {% endif %}
+                                {% if item.meta('instagram_link_url') %}
+                                    <li><a href="{{item.meta('instagram_link_url')}}" target="_blank" rel="noopener noreferrer"><span class="fab fa-instagram"></span></a></li>
+                                {% endif %}
+                                {% if item.meta('pin_interest_link_url') %}
+                                    <li><a href="{{item.meta('pin_interest_link_url')}}"  target="_blank" rel="noopener noreferrer"><span class="fab fa-pinterest-p"></span></a></li>
+                                {% endif %}
+                                      </ul>
+                                  </div><!-- /.team-card-three__content -->
+                              </div><!-- /.team-card-three__inner -->
+                          </div><!-- /.team-card-three -->
+                      </div>
+                      {% endfor %}
+                     
+                  </div><!-- /.row -->
+              </div><!-- /.auto-container -->
+          </section>
+
+{% endblock %}
