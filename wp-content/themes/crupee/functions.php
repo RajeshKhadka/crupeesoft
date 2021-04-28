@@ -68,8 +68,11 @@ class StarterSite extends Timber\Site {
 		add_action('after_setup_theme', array($this, 'theme_supports'));
 		add_filter('timber/context', array($this, 'add_to_context'));
 		add_filter('timber/twig', array($this, 'add_to_twig'));
-		add_action('init', array($this, 'register_post_types'));
-		add_action('init', array($this, 'register_taxonomies'));
+		// add_action('init', array($this, 'register_post_types'));
+		// add_action('init', array($this, 'register_taxonomies'));
+		add_action('after_setup_theme', array($this, 'register_my_menu'));
+		add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
+		add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -80,16 +83,19 @@ class StarterSite extends Timber\Site {
 	public function register_taxonomies() {
 
 	}
+	public function register_my_menu() {
+		register_nav_menu('primary', __('Primary Menu', 'crupee'));
+		register_nav_menu('secondary', __('Secondary Menu', 'crupee'));
+	}
 
 	/** This is where you add some context
 	 *
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context($context) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu'] = new Timber\Menu();
+		// $context['menu'] = new Timber\Menu();
+		$context['menu'] = new TimberMenu('primary');
+		$context['second_menu'] = new TimberMenu('secondary');
 		$context['site'] = $this;
 		return $context;
 	}

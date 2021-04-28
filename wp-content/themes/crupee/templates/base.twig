@@ -35,14 +35,16 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix one-page-scroll-menu">
-                                    <li class="scrollToLink"><a href="index.html">Home</a></li> 
-                                    <li class="scrollToLink"><a href="#about">About</a></li>
-                                    <li class="scrollToLink"><a href="#services">Services</a></li>
-                                    <li class="scrollToLink"><a href="#portfolio">Portfolio</a></li>
-                                    <li class="scrollToLink"><a href="#team">Team</a></li>
-                                    <li class="scrollToLink"><a href="#testimonials">Testimonials</a></li>
-                                    <li class="scrollToLink"><a href="#blog">Media Center</a></li>
-                                    <li class="scrollToLink"><a href="#contact">Contact</a></li>
+                                    <li><a href="{{site.link}}" >Home</a></li> 
+                                {% if fn('is_front_page')  %}
+                                    {% for item in menu.items %}
+                                        <li class="scrollToLink"><a href="{{ item.link }}">{{item.title}}</a></li>
+                                   {% endfor %}
+                                {% else %}
+                                    {% for item in second_menu.items %}
+                                        <li><a href="{{ item.link }}">{{item.title}}</a></li>
+                                    {% endfor %}
+                            {% endif %}
                                 </ul>
                             </div>
                         </nav>
@@ -114,7 +116,9 @@
                 </form>
             </div><!-- /.search-popup__inner -->
         </div><!-- /.search-popup -->
-
+{# <pre>
+    {{ menu|print_r }}
+</pre> #}
         {% block content %}
         {% endblock %}
 

@@ -86,6 +86,12 @@ $args = array(
 );
 $context['latest_news'] = Timber::get_posts($args);
 
+$pages = get_pages(array(
+	'meta_key' => '_wp_page_template',
+	'meta_value' => 'page-about.php',
+));
+$context['about_page'] = new Timber\Post($pages[0]->ID);
+
 // echo "<pre>";
 // print_r($context['offer_section']);
 // print_r($context['post']);

@@ -169,8 +169,7 @@
             <div class="auto-container">
                 <div class="content-box">
                     <div class="icon-box"><span class="flaticon-app-development"></span></div>
-                    <h2>Great things in business are never done by one person. <span>They’re done by a team of
-                            people.</span></h2>
+                    <h2>{{post.meta('quote_section')}}</h2>
                 </div>
             </div>
         </section>
@@ -180,11 +179,12 @@
         <section class="agency-section">
             <div class="auto-container">
                 <div class="row clearfix">
+                {% set group = post.meta('vision_mission_section') %}
                     <!--Left Column-->
                     <div class="left-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
                         <div class="inner">
                             <div class="sec-title">
-                                <h2>Best design Agency <br>solutions<span class="dot">.</span></h2>
+                                <h2>{{group.title_of_the_section}}<span class="dot">.</span></h2>
                             </div>
 
                             <!--Default Tabs-->
@@ -192,44 +192,34 @@
 
                                 <!--Tab Btns-->
                                 <ul class="tab-btns tab-buttons clearfix">
-                                    <li data-tab="#tab-1" class="tab-btn active-btn"><span>Our Mission</span></li>
-                                    <li data-tab="#tab-2" class="tab-btn"><span>Our Vision</span></li>
-                                    <li data-tab="#tab-3" class="tab-btn"><span>Our History</span></li>
+                                {% for key,item in group.vision_mission %}
+                                	{% if loop.first %}
+                                			{% set active_tab = "active-btn" %}
+                                			{% else %}
+                                			{% set active_tab = " " %}
+                                		{% endif %}
+                                    <li data-tab="#tab-{{key+1}}" class="tab-btn {{active_tab}}"><span>{{item.title}}</span></li>
+                                 {% endfor %}
+                                 {#    <li data-tab="#tab-2" class="tab-btn"><span>Our Vision</span></li>
+                                    <li data-tab="#tab-3" class="tab-btn"><span>Our History</span></li> #}
                                 </ul>
 
                                 <!--Tabs Container-->
                                 <div class="tabs-content">
+                                	{% for key,item in group.vision_mission %}
+                                		{% if loop.first %}
+                                			{% set active_tab = "active-tab" %}
+                                			{% else %}
+                                			{% set active_tab = " " %}
 
+                                		{% endif %}
                                     <!--Tab-->
-                                    <div class="tab active-tab" id="tab-1">
+                                    <div class="tab {{active_tab}}" id="tab-{{key+1}}">
                                         <div class="content">
-                                            <div class="text">There are many variations of passages of avaialable but
-                                                the majority have in some form, by injected humou or words which don't
-                                                look even slightly believable. There are many variations of but the
-                                                majority have suffered.</div>
+                                            <div class="text">{{item.description}}</div>
                                         </div>
                                     </div>
-
-                                    <!--Tab-->
-                                    <div class="tab" id="tab-2">
-                                        <div class="content">
-                                            <div class="text">There are many variations of passages of avaialable but
-                                                the majority have in some form, by injected humou or words which don't
-                                                look even slightly believable. There are many variations of but the
-                                                majority have suffered.</div>
-                                        </div>
-                                    </div>
-
-                                    <!--Tab-->
-                                    <div class="tab" id="tab-3">
-                                        <div class="content">
-                                            <div class="text">There are many variations of passages of avaialable but
-                                                the majority have in some form, by injected humou or words which don't
-                                                look even slightly believable. There are many variations of but the
-                                                majority have suffered.</div>
-                                        </div>
-                                    </div>
-
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -237,18 +227,18 @@
                     <!--Right Column-->
                     <div class="right-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
                         <div class="inner">
-                            <div class="text">There are many variations of passages of available but the majority have
-                                suffered alteration in some form, by injected humou or randomised words which don't look
-                                even slightly believable.</div>
+                            <div class="text">{{group.small_description_of_the_section}}</div>
                             <div class="featured-block-two clearfix">
-                                <div class="image"><img src="{{site.theme.link}}/assets/images/resource/featured-image-6.jpg" alt=""></div>
+                                <div class="image"><img src="{{Image(group.image_section).src}}" alt=""></div>
                                 <div class="text">
                                     <ul>
-                                        <li>Nsectetur cing elit.</li>
-                                        <li>Suspe ndisse suscipit sagittis leo.</li>
+                                    {% for item in group.small_list_section %}
+                                        <li>{{item.title}}</li>
+                                    {% endfor %}
+                                        {# <li>Suspe ndisse suscipit sagittis leo.</li>
                                         <li>Entum estibulum dignissim posuere.</li>
                                         <li>If you are going to use a passage.</li>
-                                        <li>Lorem Ipsum on the tend to repeat.</li>
+                                        <li>Lorem Ipsum on the tend to repeat.</li> #}
                                     </ul>
                                 </div>
                             </div>
