@@ -31,7 +31,7 @@
                             <div class="post-details">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <a href="blog-single.html"><img src="{{post.thumbnail.src}}" alt="{{post.post_title}}'s Image"></a>
+                                       <img src="{{post.thumbnail.src}}" alt="{{post.post_title}}'s Image">
                                     </div>
                                     <div class="lower-box">
                                         <div class="post-meta">
@@ -51,18 +51,22 @@
                             </div>
                             <div class="post-control-two">
                                 <div class="row clearfix">
+                                    {% if post.prev %}
                                     <div class="control-col col-md-6 col-sm-12">
                                         <div class="control-inner">
-                                            <h4><a href="#">A DEEP UNDERSTANDING OF OUR AUDIENCE</a></h4>
-                                            <a href="#" class="over-link"></a>
+                                            <h4><a href="{{post.prev.link}}">{{post.prev.title}}</a></h4>
+                                            <a href="{{post.prev.link}}" class="over-link"></a>
                                         </div>
                                     </div>
+                                    {% endif %}
+                                     {% if post.next %}
                                     <div class="control-col col-md-6 col-sm-12">
                                         <div class="control-inner">
-                                            <h4><a href="#">EXPERIENCES THAT CONNECT WITH PEOPLE</a></h4>
-                                            <a href="#" class="over-link"></a>
+                                            <h4><a href="{{post.next.link}}">{{post.next.title}}</a></h4>
+                                            <a href="{{post.next.link}}" class="over-link"></a>
                                         </div>
                                     </div>
+                                    {% endif %}
                                 </div>
                             </div>
                            {#  <!--Comments Area-->

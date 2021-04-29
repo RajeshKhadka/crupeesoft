@@ -45,7 +45,7 @@ if (!class_exists('Timber')) {
  * Sets the directories (inside your theme) to find .twig files
  */
 Timber::$dirname = array('templates', 'views');
-date_default_timezone_set('Asia/Kathmandu');
+// date_default_timezone_set('Asia/Kathmandu');
 define('CRUPEESOFT_THEME_DIR', dirname(__FILE__));
 define('CRUPEESOFT_THEME_URL', get_template_directory_uri());
 
