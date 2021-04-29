@@ -224,4 +224,40 @@ function post_type_init() {
 
 	register_post_type('sliders', $args);
 
+	$labels = array(
+		'name' => _x('Client ', 'post type general name', 'crupeesoft'),
+		'singular_name' => _x('Client ', 'post type singular name', 'crupeesoft'),
+		'menu_name' => _x('Client ', 'admin menu', 'crupeesoft'),
+		'name_admin_bar' => _x('Client ', 'add new on admin bar', 'crupeesoft'),
+		'add_new' => _x('Add New', 'Client ', 'crupeesoft'),
+		'add_new_item' => __('Add New Client ', 'crupeesoft'),
+		'new_item' => __('New Client ', 'crupeesoft'),
+		'edit_item' => __('Edit Client ', 'crupeesoft'),
+		'view_item' => __('View Client ', 'crupeesoft'),
+		'all_items' => __('All Client', 'crupeesoft'),
+		'search_items' => __('Search Clients', 'crupeesoft'),
+		'parent_item_colon' => __('Parent Clients:', 'crupeesoft'),
+		'not_found' => __('No Client found.', 'crupeesoft'),
+		'not_found_in_trash' => __('No Clients found in Trash.', 'crupeesoft'),
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'description' => __('Description.', 'crupeesoft'),
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'menu_icon' => 'dashicons-networking',
+		'query_var' => true,
+		// 'rewrite'            => array( 'slug' => 'crupeesoft' ),
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title', 'editor', 'thumbnail'),
+	);
+
+	register_post_type('clients', $args);
+
 }

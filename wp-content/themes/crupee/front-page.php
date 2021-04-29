@@ -86,6 +86,17 @@ $args = array(
 );
 $context['latest_news'] = Timber::get_posts($args);
 
+$args = array(
+	'post_type' => 'clients',
+	'post_status' => 'publish',
+	'posts_per_page' => -1,
+	// 'orderby' => 'meta_value_num',
+	// 'meta_key' => 'works_priority',
+	'order' => 'DESC',
+
+);
+$context['clients'] = Timber::get_posts($args);
+
 $pages = get_pages(array(
 	'meta_key' => '_wp_page_template',
 	'meta_value' => 'page-about.php',

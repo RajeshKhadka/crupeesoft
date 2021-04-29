@@ -58,13 +58,13 @@
                     <div class="other-links clearfix">
                         <div class="link-box">
                             <div class="call-us">
-                                <a class="link" href="tel:6668880000">
+                                    {% if conntact_number %}
+                                <a class="link" href="tel:{{conntact_number}}">
                                     <span class="icon"></span>
                                     <span class="sub-text">Contact</span>
-                                    {% if conntact_number %}
                                     <span class="number">{{conntact_number}}</span>
-                                    {% endif %}
                                 </a>
+                                    {% endif %}
                             </div>
                         </div>
                     </div>

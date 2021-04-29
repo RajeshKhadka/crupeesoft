@@ -487,7 +487,7 @@
             </div>
         </section>
         <!-- End Funfacts Section -->
-
+        {% set features_section = post.meta('features_section') %}
         <!--Features Section-->
         <section class="features-section-two">
             <div class="auto-container">
@@ -497,7 +497,7 @@
                         <div class="left-col col-lg-5 col-md-12 col-sm-12">
                             <div class="inner">
                                 <div class="sec-title">
-                                    <h2>Crupee all core features<span class="dot">.</span></h2>
+                                    <h2>{{features_section.title_of_the_section}}<span class="dot">.</span></h2>
                                 </div>
                                 <div class="features">
                                     {% for key,item in features %}
@@ -526,10 +526,10 @@
                         <div class="right-col col-lg-7 col-md-12 col-sm-12">
                             <div class="inner">
                                 <div class="image-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                                    <img src="{{site.theme.link}}/assets/images/resource/featured-image-13.jpg" alt="">
+                                    <img src="{{Image(features_section.image_section).src}}" alt="{{features_section.title_of_the_section}}'s image">
                                     <div class="cap-box">
                                         <div class="cap-inner">
-                                            <h5>Total design freedom for everyone</h5>
+                                            <h5>{{features_section.image_text}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -702,36 +702,12 @@
                 <div class="auto-container">
                     <!--Sponsors Carousel-->
                     <div class="sponsors-carousel owl-theme owl-carousel">
+                    {% for item in clients %}
                         <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/1.png" alt=""></a></figure>
+                            <figure class="image-box"><a href="Javascript:void(0);"><img src="{{item.thumbnail.src}}" alt=""></a></figure>
                         </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/2.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/3.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/4.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/5.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/1.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/2.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/3.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/4.png" alt=""></a></figure>
-                        </div>
-                        <div class="slide-item">
-                            <figure class="image-box"><a href="#"><img src="{{site.theme.link}}/assets/images/clients/5.png" alt=""></a></figure>
-                        </div>
+                    {% endfor %}
+                        
                     </div>
                 </div>
             </div>
@@ -791,17 +767,17 @@
                                     <li class="address">
                                         <span class="icon flaticon-pin-1"></span>
                                         <strong>Visit Us</strong>
-                                        66 Broklyn Street, New York. USA
+                                        {{address}}
                                     </li>
                                     <li>
                                         <span class="icon flaticon-email-2"></span>
                                         <strong>Email address</strong>
-                                        <a href="mailto:needhelp@linoor.com">needhelp@linoor.com</a>
+                                        <a href="mailto:{{email}}">{{email}}</a>
                                     </li>
                                     <li>
                                         <span class="icon flaticon-call"></span>
                                         <strong>Call now</strong>
-                                        <a href="tel:666888000">666 888 000</a>
+                                        <a href="tel:{{conntact_number}}">{{conntact_number}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -864,7 +840,7 @@
         <div class="map-section map-section__one-page">
             <div class="map-container">
                 <iframe class="map-iframe"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230899.1642407818!2d145.06327708904033!3d-37.792102974783376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65cd0db468a97%3A0xb61fde84306fc38a!2sMelbourne%20Zoo!5e0!3m2!1sen!2s!4v1592307685926!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb={{post.meta('map_section')}}"
                     style="border:0;" aria-hidden="false" tabindex="0"></iframe>
             </div>
         </div>
