@@ -142,6 +142,9 @@
 			<footer id="footer">
 				{% include 'footer.twig' %}
 			</footer>
+            <script>
+                site_url = {{ site.link }}
+            </script>
 			{{ function('wp_footer') }}
 		{% endblock %}
 	</body>
