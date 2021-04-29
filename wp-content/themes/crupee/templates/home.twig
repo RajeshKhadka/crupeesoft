@@ -44,37 +44,47 @@
         <section class="about-section" id="about">
             <div class="auto-container">
                 <div class="row clearfix">
+                    {% set aboutGroup = post.meta('about_us_section') %}
                     <!--Image Column-->
+                    {% set delay = 0 %}
                     <div class="image-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
                         <div class="inner">
-                            <div class="image-block wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms"><img
-                                    src="{{site.theme.link}}/assets/images/resource/featured-image-1.jpg" alt=""></div>
-                            <div class="image-block wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms"><img
-                                    src="{{site.theme.link}}/assets/images/resource/featured-image-2.jpg" alt=""></div>
-                        </div>
+                        {% for key,item in aboutGroup.image_field %}
+                            {% if (key+1)%2 == 0 %}
+                                {% set var = 'fadeInLeft' %}
+
+                            {% else %}
+                                {% set var = 'fadeInUp' %}
+                            {% endif %}
+                            <div class="image-block wow {{var}}" data-wow-delay="{{delay}}ms" data-wow-duration="1500ms"><img src="{{Image(item.image).src}}" alt="image"></div>
+                            {# <div class="image-block wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms"><img
+                                    src="{{site.theme.link}}/assets/images/resource/featured-image-2.jpg" alt=""></div> #}
+                         {% set delay = delay+300 %}
+                            {% endfor %}
+                         </div>
                     </div>
                     <!--Text Column-->
                     <div class="text-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
                         <div class="inner">
                             <div class="sec-title">
-                                <h2>We’re the best agency <br>in downtown<span class="dot">.</span></h2>
-                                <div class="lower-text">We are committed to providing our customers with exceptional
-                                    service while offering our employees the best training.</div>
+                                <h2>{{aboutGroup.section_title}}<span class="dot">.</span></h2>
+                                <div class="lower-text">{{aboutGroup.sub_title_of_the_section}}</div>
                             </div>
                             <div class="text">
-                                <p>Lorem Ipsum is simply dummy text of free available in market the printing and
-                                    typesetting industry has been the industry's standard dummy text ever.</p>
+                                <p>{{aboutGroup.small_description}}</p>
                             </div>
                             <div class="text clearfix">
                                 <ul>
-                                    <li>Suspe ndisse suscipit sagittis leo.</li>
-                                    <li>Entum estibulum dignissim posuere.</li>
-                                    <li>If you are going to use a passage.</li>
+                                {% for item in aboutGroup.list_section %}
+                                    <li>{{item.title}}</li>
+                                {% endfor %}
+                                {#     <li>Entum estibulum dignissim posuere.</li>
+                                    <li>If you are going to use a passage.</li> #}
                                 </ul>
-                                <div class="since"><span class="txt">Since <br>2008</span></div>
+                                <div class="since"><span class="txt">Since <br>{{aboutGroup.since_time_section}}</span></div>
                             </div>
                             <div class="link-box">
-                                <a class="theme-btn btn-style-one" href="about.html">
+                                <a class="theme-btn btn-style-one" href="{{aboutGroup.page_link}}">
                                     <i class="btn-curve"></i>
                                     <span class="btn-title">Discover More</span>
                                 </a>
@@ -178,7 +188,7 @@
             </div>
         </section>
 
-
+        {% set platform = post.meta('plaftform_section') %}
         <!--We DO Section-->
         <section class="we-do-section">
             <div class="auto-container">
@@ -187,23 +197,25 @@
                     <div class="left-col col-lg-6 col-md-12 col-sm-12">
                         <div class="inner">
                             <div class="sec-title">
-                                <h2>We do more then ever <br>platforms<span class="dot">.</span></h2>
+                                <h2>{{platform.title_of_the_section}}<span class="dot">.</span></h2>
                             </div>
+                            {% for item in platform.our_services %}
                             <div class="featured-block clearfix">
-                                <div class="image"><img src="{{site.theme.link}}/assets/images/resource/featured-image-4.jpg" alt=""></div>
-                                <div class="text">There are many variatns of passages the majority have suffered
-                                    alteration in some foor randomised words believable.</div>
+                                <div class="image"><img src="{{Image(item.image).src}}" alt=""></div>
+                                <div class="text">{{item.content}}</div>
                             </div>
                             <div class="progress-box">
-                                <div class="bar-title">Digital marketing</div>
+                                <div class="bar-title">{{item.title}}</div>
                                 <div class="bar">
-                                    <div class="bar-inner count-bar" data-percent="70%">
+                                    <div class="bar-inner count-bar" data-percent="{{item.percentage}}%">
                                         <div class="count-box">
-                                            <span class="count-text" data-stop="70" data-speed="1500">0</span>%
+                                            <span class="count-text" data-stop="{{item.percentage}}" data-speed="1500">0</span>%
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <br>
+                            {% endfor %}
                         </div>
                     </div>
                     <!--Right Column-->
@@ -211,20 +223,25 @@
                         <div class="inner">
                             <div class="faq-box">
                                 <ul class="accordion-box clearfix">
+                                {% for key,item in platform.our_specialty_section %}
+                                    {% if loop.first %}
+                                        {% set active = 'active-block' %}
+                                    {% else %}
+                                        {% set active = ' ' %}
+
+                                    {% endif %}
                                     <!--Block-->
-                                    <li class="accordion block active-block">
-                                        <div class="acc-btn active"><span class="count">1.</span> We help to create
-                                            visual strategies</div>
+                                    <li class="accordion block {{active}}">
+                                        <div class="acc-btn active"><span class="count">{{key+1}}.</span>{{item.title}}</div>
                                         <div class="acc-content current">
                                             <div class="content">
-                                                <div class="text">There are many variations of passages the majority
-                                                    have suffered alteration in some fo injected humour, or randomised
-                                                    words believable.</div>
+                                                <div class="text">{{item.content}}</div>
                                             </div>
                                         </div>
                                     </li>
+                                    {% endfor %}
 
-                                    <!--Block-->
+                                    {# <!--Block-->
                                     <li class="accordion block">
                                         <div class="acc-btn"><span class="count">2.</span> Motion Graphics & Animations
                                         </div>
@@ -248,7 +265,7 @@
                                                     words believable.</div>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> #}
 
                                 </ul>
                             </div>
@@ -301,7 +318,7 @@
                                     <div class="cap-inner">
                                         <div class="cat"><span>{{sitem.post_title}}</span></div>
                                         <div class="title">
-                                            <h5><a href="portfolio-single.html">{{sitem.post_title}}</a></h5>
+                                            <h5><a href="{{sitem.link}}">{{sitem.post_title}}</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -573,8 +590,7 @@
             <div class="auto-container">
                 <div class="content-box">
                     <div class="icon-box"><span class="flaticon-app-development"></span></div>
-                    <h2>Great things in business are never done by one person. <span>They’re done by a team of
-                            people.</span></h2>
+                    <h2>{{post.meta('quote_section')}}</h2>
                 </div>
             </div>
         </section>
