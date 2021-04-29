@@ -1,0 +1,61 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+        <!-- Banner Section -->
+        <section class="page-banner">
+            <div class="image-layer" style="background-image:url({{post.thumbnail.src}});"></div>
+            <div class="banner-inner">
+                <div class="auto-container">
+                    <div class="inner-container clearfix">
+                        <h1>{{post.post_title}}</h1>
+                        <div class="page-nav">
+                            <ul class="bread-crumb clearfix">
+                                <li><a href="{{site.link}}">Home</a></li>
+                                <li class="active">{{post.post_title}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Banner Section -->
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="auto-container">
+
+                <div class="row clearfix">
+                	{% for item in blogList %}
+                    <!--News Block-->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms"
+                        data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <a href="blog-single.html"><img src="{{item.thumbnail.src}}" alt="{{item.post_title}}'s Image"></a>
+                            </div>
+                            <div class="lower-box">
+                                <div class="post-meta">
+                                    <ul class="clearfix">
+                                        <li><span class="far fa-clock"></span> {{ item.date is empty ? "" : item.date|date("m/d/Y") }}</li>
+                                        <li><span class="far fa-user-circle"></span> {{item.author.name}}</li>
+                                        {# <li><span class="far fa-comments"></span> 2 Comments</li> #}
+                                    </ul>
+                                </div>
+                                <h5><a href="blog-single.html">{{item.post_title}}</a></h5>
+                                <div class="text">{{item.post_content}}</div>
+                                <div class="link-box"><a class="theme-btn" href="{{item.link}}"><span
+                                            class="flaticon-next-1"></span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {# <div class="more-box">
+                    <a class="theme-btn btn-style-one" href="blog.html.html">
+                        <i class="btn-curve"></i>
+                        <span class="btn-title">Load more posts</span>
+                    </a>
+                </div> #}
+            </div>
+        </section>
+{% endblock %}

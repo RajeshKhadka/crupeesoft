@@ -1,0 +1,132 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		 <div class="page-wrapper">
+
+        <div class="preloader">
+            <div class="icon"></div>
+        </div>
+
+        <!-- Main Header -->
+        <header class="main-header header-style-one header-style-four">
+
+            <!-- Header Upper -->
+            <div class="header-upper">
+                <div class="inner-container clearfix">
+                    <!--Logo-->
+                    <div class="logo-box">
+                        <div class="logo"><a href="{{site.link}}" title="Crupee Software Development"><img
+                                    src="{{site.theme.link}}/assets/images/logo.png" id="dLogo" class="main-logo"
+                                    alt="Crupee Software Development"
+                                    title="Crupee Software Development"></a></div>
+                    </div>
+                    <div class="nav-outer clearfix">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler"><span class="icon flaticon-menu-2"></span><span
+                                class="txt">Menu</span></div>
+
+                        <!-- Main Menu -->
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix one-page-scroll-menu">
+                                    <li><a href="{{site.link}}" >Home</a></li> 
+                                {% if fn('is_front_page')  %}
+                                    {% for item in menu.items %}
+                                        <li class="scrollToLink"><a href="{{ item.link }}">{{item.title}}</a></li>
+                                   {% endfor %}
+                                {% else %}
+                                    {% for item in second_menu.items %}
+                                        <li><a href="{{ item.link }}">{{item.title}}</a></li>
+                                    {% endfor %}
+                            {% endif %}
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="other-links clearfix">
+                        <div class="link-box">
+                            <div class="call-us">
+                                <a class="link" href="tel:6668880000">
+                                    <span class="icon"></span>
+                                    <span class="sub-text">Contact</span>
+                                    <span class="number">+977 - 014444862/863/865</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--End Header Upper-->
+
+
+        </header>
+        <!-- End Main Header -->
+
+        <!--Mobile Menu-->
+        <div class="side-menu__block">
+
+
+            <div class="side-menu__block-overlay custom-cursor__overlay">
+                <div class="cursor"></div>
+                <div class="cursor-follower"></div>
+            </div><!-- /.side-menu__block-overlay -->
+            <div class="side-menu__block-inner ">
+                <div class="side-menu__top justify-content-end">
+
+                    <a href="#" class="side-menu__toggler side-menu__close-btn"><img src="{{site.theme.link}}/assets/images/icons/close-1-1.png"
+                            alt=""></a>
+                </div><!-- /.side-menu__top -->
+
+
+                <nav class="mobile-nav__container">
+                    <!-- content is loading via js -->
+                </nav>
+                <div class="side-menu__sep"></div><!-- /.side-menu__sep -->
+                <div class="side-menu__content">
+
+                    <p><a href="mailto:info@crupeesoftwaredevelopment.com.np">info@crupeesoftwaredevelpment.com.np</a> <br> <a href="tel:+977 - 014444862/863/865">+977 - 014444862/863/865</a></p>
+                    <div class="side-menu__social">
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div><!-- /.side-menu__content -->
+            </div><!-- /.side-menu__block-inner -->
+        </div><!-- /.side-menu__block -->
+
+        <!--Search Popup-->
+        <div class="search-popup">
+            <div class="search-popup__overlay custom-cursor__overlay">
+                <div class="cursor"></div>
+                <div class="cursor-follower"></div>
+            </div><!-- /.search-popup__overlay -->
+            <div class="search-popup__inner">
+                <form action="#" class="search-popup__form">
+                    <input type="text" name="search" placeholder="Type here to Search....">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div><!-- /.search-popup__inner -->
+        </div><!-- /.search-popup -->
+{# <pre>
+    {{ menu|print_r }}
+</pre> #}
+        {% block content %}
+        {% endblock %}
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>
