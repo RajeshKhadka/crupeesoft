@@ -21,10 +21,15 @@
                 <div class="inner-container clearfix">
                     <!--Logo-->
                     <div class="logo-box">
-                        <div class="logo"><a href="{{site.link}}" title="Crupee Software Development"><img
-                                    src="{{site.theme.link}}/assets/images/logo.png" id="dLogo" class="main-logo"
-                                    alt="Crupee Software Development"
-                                    title="Crupee Software Development"></a></div>
+                        <div class="logo">
+                            <a href="{{site.link}}" title="Crupee Software Development">
+                        {% if logo %}
+                            <img src="{{Image(logo).src}}" id="dLogo" class="main-logo" alt="Crupee Software Development" title="Crupee Software Development">
+                        {% else %}
+                       <img src="{{site.theme.link}}/assets/images/logo.png" id="dLogo" class="main-logo" alt="Crupee Software Development" title="Crupee Software Development">
+                        {% endif %}
+                            </a>
+                        </div>
                     </div>
                     <div class="nav-outer clearfix">
                         <!--Mobile Navigation Toggler-->
@@ -56,7 +61,9 @@
                                 <a class="link" href="tel:6668880000">
                                     <span class="icon"></span>
                                     <span class="sub-text">Contact</span>
-                                    <span class="number">+977 - 014444862/863/865</span>
+                                    {% if conntact_number %}
+                                    <span class="number">{{conntact_number}}</span>
+                                    {% endif %}
                                 </a>
                             </div>
                         </div>
@@ -65,22 +72,17 @@
                 </div>
             </div>
             <!--End Header Upper-->
-
-
         </header>
         <!-- End Main Header -->
 
         <!--Mobile Menu-->
         <div class="side-menu__block">
-
-
             <div class="side-menu__block-overlay custom-cursor__overlay">
                 <div class="cursor"></div>
                 <div class="cursor-follower"></div>
             </div><!-- /.side-menu__block-overlay -->
             <div class="side-menu__block-inner ">
                 <div class="side-menu__top justify-content-end">
-
                     <a href="#" class="side-menu__toggler side-menu__close-btn"><img src="{{site.theme.link}}/assets/images/icons/close-1-1.png"
                             alt=""></a>
                 </div><!-- /.side-menu__top -->
@@ -92,12 +94,26 @@
                 <div class="side-menu__sep"></div><!-- /.side-menu__sep -->
                 <div class="side-menu__content">
 
-                    <p><a href="mailto:info@crupeesoftwaredevelopment.com.np">info@crupeesoftwaredevelpment.com.np</a> <br> <a href="tel:+977 - 014444862/863/865">+977 - 014444862/863/865</a></p>
+                    <p>
+                    {% if email %}
+                    <a href="mailto:{{email}}">{{email}}</a> <br> 
+                    {% endif %}
+                    {% if conntact_number %}
+                    <a href="tel:{{conntact_number}}">{{conntact_number}}</a></p>
+                    {% endif %}
                     <div class="side-menu__social">
-                        <a href="#"><i class="fab fa-facebook-square"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    {% if facebook_url %}
+                        <a href="{{facebook_url}}"><i class="fab fa-facebook-square"></i></a>
+                    {% endif %}
+                    {% if instagram_url %}
+                        <a href="{{instagram_url}}"><i class="fab fa-instagram"></i></a>
+                    {% endif %}
+                    {% if twitter_url %}
+                        <a href="{{twitter_url}}"><i class="fab fa-twitter"></i></a>
+                    {% endif %}
+                    {% if pinterest_url %}
+                        <a href="{{pinterest_url}}"><i class="fab fa-pinterest-p"></i></a>
+                    {% endif %}
                     </div>
                 </div><!-- /.side-menu__content -->
             </div><!-- /.side-menu__block-inner -->

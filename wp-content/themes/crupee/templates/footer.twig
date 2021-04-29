@@ -10,15 +10,28 @@
                             <div class="footer-widget logo-widget">
                                 <div class="widget-content">
                                     <div class="logo">
+                                    {% if logo %}
+                                        <a href="{{site.link}}"><img id="fLogo" src="{{Image(logo).src}}" alt="" /></a>
+
+                                    {% else %}
                                         <a href="{{site.link}}"><img id="fLogo" src="{{site.theme.link}}/assets/images/footer-logo.png" alt="" /></a>
+                                    {% endif %}
                                     </div>
                                     <div class="text">Welcome to our web design agency. Lorem ipsum simply free text
                                         dolor sited amet cons cing elit.</div>
                                     <ul class="social-links clearfix">
-                                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                        {% if facebook_url %}
+                                            <li><a href="{{facebook_url}}"><span class="fab fa-facebook-square"></span></a></li>
+                                        {% endif %}
+                                        {% if twitter_url %}
+                                            <li><a href="{{twitter_url}}"><span class="fab fa-twitter"></span></a></li>
+                                        {% endif %}
+                                        {% if instagram_url %}
+                                            <li><a href="{{instagram_url}}"><span class="fab fa-instagram"></span></a></li>
+                                        {% endif %}
+                                        {% if pinterest_url %}
+                                            <li><a href="{{pinterest_url}}"><span class="fab fa-pinterest-p"></span></a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -58,10 +71,16 @@
                                 <div class="widget-content">
                                     <h6>Contact</h6>
                                     <ul class="contact-info">
-                                        <li class="address"><span class="icon flaticon-pin-1"></span> Lazimpat Marga, Opposite of Shangrila Hotel</li>
-                                        <li><span class="icon flaticon-call"></span><a href="tel:666888000">+977 - 014444862/863/865</a></li>
+                                    {% if address %}
+                                        <li class="address"><span class="icon flaticon-pin-1"></span> {{address}}</li>
+                                    {% endif %}
+                                    {% if conntact_number %}
+                                        <li><span class="icon flaticon-call"></span><a href="tel:{{conntact_number}}">{{conntact_number}}</a></li>
+                                    {% endif %}
+                                    {% if email %}
                                         <li><span class="icon flaticon-email-2"></span><a
-                                                href="mailto:info@crupeesoftwaredevelopment.com.np">info@crupeesoftwaredevelopment.com.np</a></li>
+                                                href="mailto:{{email}}">{{email}}</a></li>
+                                    {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -130,4 +149,4 @@
     <script src="{{site.theme.link}}/assets/js/jquery.easing.min.js"></script>
     <script src="{{site.theme.link}}/assets/js/custom-script.js"></script>
 
-Copyright {{"now"|date('Y')}}
+{# Copyright {{"now"|date('Y')}} #}

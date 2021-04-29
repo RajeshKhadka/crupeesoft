@@ -96,6 +96,15 @@ class StarterSite extends Timber\Site {
 		// $context['menu'] = new Timber\Menu();
 		$context['menu'] = new TimberMenu('primary');
 		$context['second_menu'] = new TimberMenu('secondary');
+		$context['logo'] = get_field('logo');
+		$context['conntact_number'] = get_field('conntact_number');
+		$context['address'] = get_field('address');
+		$context['email'] = get_field('email');
+		$context['facebook_url'] = get_field('facebook_url');
+		$context['instagram_url'] = get_field('instagram_url');
+		$context['twitter_url'] = get_field('twitter_url');
+		$context['pinterest_url'] = get_field('pinterest_url');
+
 		$context['site'] = $this;
 		return $context;
 	}
